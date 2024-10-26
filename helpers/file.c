@@ -1,3 +1,4 @@
+#include <assert.h>
 #include "file.h"
 #ifdef __WIN32__
 	#include <windows.h>
@@ -20,4 +21,17 @@ bool file_exists(char *file_path)
 	#else
 	// linux here
 	#endif
+
+}
+
+FILE *file_open(char *file_path, char *mode)
+{
+	assert(file_path);
+	return fopen(file_path, mode);
+}
+
+void file_close(FILE *file)
+{
+	assert(file);
+	fclose(file);
 }

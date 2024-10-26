@@ -14,14 +14,17 @@ void panic()
 
 int main(int argc, char *args[])
 {
-	printf("Pascal Compiler with c and emacs :) \n");
 	if (argc == 1) {
-		printf("enter file name");
+		printf("ERROR : Enter File Path");
 		panic();
 	}
-	if (!file_exists(args[1])) {
-		printf("file not found\n");
+	char *file_path = args[1];
+	if (!file_exists(file_path)) {
+		printf("ERROR : File Not Found\n");
 		panic();
 	}
+	FILE *file = file_open(file_path, "r");
+
+	file_close(file);
 	return 0;
 }
