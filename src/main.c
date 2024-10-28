@@ -27,7 +27,7 @@ int main(int argc, char *args[])
 	}
 	lexer_t *lexer = lexer_init(file_path);
 	if (lexer) {
-		printf("lexer malloced\n");
+		printf("%s\n", lexer->file_name);
 	}
 	lexer_free(lexer);
 	return 0;
