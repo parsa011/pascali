@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "file.h"
+#include "basic.h"
+#include "helpers/file.h"
 
 void help()
 {
-	printf("compiler_name file-name");
+	printf("pascali 'file-name'");
 }
 
 void panic()
@@ -24,7 +25,11 @@ int main(int argc, char *args[])
 		panic();
 	}
 	FILE *file = file_open(file_path, "r");
-
+	int c = fgetc(file);
+	while (c != EOF) {
+		putchar(c);
+		c = fgetc(file);
+	}
 	file_close(file);
 	return 0;
 }

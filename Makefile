@@ -1,12 +1,15 @@
-CXX := gcc
+CC := gcc
+PROGRAM := pascali
+BUILD_PATH := build
+CC_FLAGS := -g -Wall
+INCLUDES := -I.
 
-HELPERS_DIR := ./helpers
-SRC_DIR := ./src
+SRCS = $(wildcard src/*.c helpers/*.c)
+HEADERS = $(wildcard src/*.h helpers/*.h)
 
-OBJS := $(wildcard $(HELPERS_SRC)/*.c)
-SRCS := $(wildcard $(SRC_DIR)/*.c)
+.PHONY : main clear
+main : $(SRCS) $(HEADERS)
+	$(CC) $(INCLUDES) $(CC_FLAGS) $^ -o $(BUILD_PATH)/$(PROGRAM)
 
-HELPERS := -I$(HELPERS_DIR)
-
-build:
-	$(CXX) src/main.c file.o -I$(HELPERS_DIR)
+clear:
+	rm -rf ./$(BUILD_PATH)/*
