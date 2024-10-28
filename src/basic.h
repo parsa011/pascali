@@ -25,6 +25,7 @@ typedef struct {
 #define MIN(a, b) (a < b ? a : b)
 
 void *pmalloc(int size);
+void pfree(void *);
 public void panic();
 
 #endif

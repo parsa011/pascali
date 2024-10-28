@@ -6,3 +6,8 @@ lexer_t *lexer_init(char *file_name)
 	lexer_t *lexer = pmalloc(sizeof(lexer_t));
 	return lexer;
 }
+
+void lexer_free(lexer_t *lexer)
+{
+	pfree(lexer);
+}

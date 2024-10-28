@@ -7,4 +7,6 @@ typedef struct lexer{
 
 lexer_t *lexer_init(char *file_path);
 
+void lexer_free(lexer_t *lexer);
+
 #endif

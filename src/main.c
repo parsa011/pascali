@@ -29,5 +29,6 @@ int main(int argc, char *args[])
 	if (lexer) {
 		printf("lexer malloced\n");
 	}
+	lexer_free(lexer);
 	return 0;
 }

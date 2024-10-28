@@ -8,3 +8,9 @@ void *pmalloc(int size)
 	assert(res);
 	return res;
 }
+
+void pfree(void *m)
+{
+	assert(m);
+	free(m);
+}
