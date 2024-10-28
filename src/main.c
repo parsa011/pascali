@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "basic.h"
 #include "helpers/file.h"
+#include "lexer/lexer.h"
 
 void help()
 {
@@ -24,12 +25,9 @@ int main(int argc, char *args[])
 		printf("ERROR : File Not Found\n");
 		panic();
 	}
-	FILE *file = file_open(file_path, "r");
-	int c = fgetc(file);
-	while (c != EOF) {
-		putchar(c);
-		c = fgetc(file);
+	lexer_t *lexer = lexer_init(file_path);
+	if (lexer) {
+		printf("lexer malloced\n");
 	}
-	file_close(file);
 	return 0;
 }

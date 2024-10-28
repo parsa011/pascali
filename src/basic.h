@@ -1,5 +1,5 @@
 #ifndef _BASIC_H
-# define _BASC_H
+# define _BASIC_H
 
 #define public extern
 #define private static
@@ -24,6 +24,7 @@ typedef struct {
 #define MAX(a, b) (a > b ? a : b)
 #define MIN(a, b) (a < b ? a : b)
 
+void *pmalloc(int size);
 public void panic();
 
 #endif
